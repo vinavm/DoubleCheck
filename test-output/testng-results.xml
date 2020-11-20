@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Acknowledgement Selection Test Suite" duration-ms="95989" started-at="2020-11-20T12:37:27Z" finished-at="2020-11-20T12:39:03Z">
+    <groups>
+    </groups>
+    <test name="Acknowledgement Selection Test Cases" duration-ms="95989" started-at="2020-11-20T12:37:27Z" finished-at="2020-11-20T12:39:03Z">
+      <class name="TestCases.AcknowedgementSelection">
+        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="beforeClass" is-config="true" duration-ms="15815" started-at="2020-11-20T12:37:27Z" finished-at="2020-11-20T12:37:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.reflect.Method)[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="beforeMethod" is-config="true" duration-ms="661" started-at="2020-11-20T12:37:43Z" finished-at="2020-11-20T12:37:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void TestCases.AcknowedgementSelection.VerifyAcknowedgementSelection() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="VerifyAcknowedgementSelection()[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="VerifyAcknowedgementSelection" duration-ms="46825" started-at="2020-11-20T12:37:43Z" finished-at="2020-11-20T12:38:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAcknowedgementSelection -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="afterMethod" is-config="true" duration-ms="3234" started-at="2020-11-20T12:38:30Z" finished-at="2020-11-20T12:38:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyAcknowedgementSelection status=SUCCESS method=AcknowedgementSelection.VerifyAcknowedgementSelection()[pri:0, instance:TestCases.AcknowedgementSelection@402a079c] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void TestCases.AcknowedgementSelection.VerifyAcknowedgementSelection() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.reflect.Method)[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2020-11-20T12:38:33Z" finished-at="2020-11-20T12:38:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void TestCases.AcknowedgementSelection.VerifyCashAmountandOverdueAmount() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="VerifyCashAmountandOverdueAmount()[pri:1, instance:TestCases.AcknowedgementSelection@402a079c]" name="VerifyCashAmountandOverdueAmount" duration-ms="25915" started-at="2020-11-20T12:38:33Z" finished-at="2020-11-20T12:38:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCashAmountandOverdueAmount -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="afterMethod" is-config="true" duration-ms="2172" started-at="2020-11-20T12:38:59Z" finished-at="2020-11-20T12:39:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyCashAmountandOverdueAmount status=SUCCESS method=AcknowedgementSelection.VerifyCashAmountandOverdueAmount()[pri:1, instance:TestCases.AcknowedgementSelection@402a079c] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void TestCases.AcknowedgementSelection.VerifyCashAmountandOverdueAmount() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="terminateReport()[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="terminateReport" is-config="true" duration-ms="1285" started-at="2020-11-20T12:39:02Z" finished-at="2020-11-20T12:39:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateReport -->
+      </class> <!-- TestCases.AcknowedgementSelection -->
+    </test> <!-- Acknowledgement Selection Test Cases -->
+  </suite> <!-- Acknowledgement Selection Test Suite -->
+</testng-results>

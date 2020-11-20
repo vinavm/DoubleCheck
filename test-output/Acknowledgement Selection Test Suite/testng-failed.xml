@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Acknowledgement Selection Test Suite]">
+  <listeners>
+    <listener class-name="Listneres.AnnotationTransformer"/>
+  </listeners>
+  <test thread-count="5" name="Acknowledgement Selection Test Cases(failed)">
+    <parameter name="localDriverPath" value="C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"/>
+    <parameter name="browserName" value="chrome"/>
+    <classes>
+      <class name="TestCases.AcknowedgementSelection">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="terminateReport"/>
+          <include name="beforeClass"/>
+          <include name="afterMethod"/>
+          <include name="VerifyAcknowedgementSelection"/>
+        </methods>
+      </class> <!-- TestCases.AcknowedgementSelection -->
+    </classes>
+  </test> <!-- Acknowledgement Selection Test Cases(failed) -->
+</suite> <!-- Failed suite [Acknowledgement Selection Test Suite] -->

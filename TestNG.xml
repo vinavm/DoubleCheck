@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Create User For All Solution Test Suite">
-    <test name="Create User For All Solution UI Automation">
+<suite name="Acknowledgement Selection Test Suite">
+    <listeners>
+
+        <listener class-name="Listneres.AnnotationTransformer"/>
+    </listeners>
+
+
+    <test name="Acknowledgement Selection Test Cases">
+
+
         <parameter name="browserName" value="chrome"/>
-        <parameter name="localDriverPath" value="C:\Program Files (x86)\chromedriver.exe"/>
+        <parameter name="localDriverPath" value="C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"/>
         <!--<parameter name="localDriverPath" value="E:\geckodriver.exe"/>-->
 
-             
         <classes>
 
-            <class name="Login.LoginTC"/>
+            <class name="TestCases.AcknowedgementSelection"/>
 
         </classes>
     </test>
