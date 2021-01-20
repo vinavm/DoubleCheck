@@ -8,15 +8,19 @@
 
 
     <test name="Acknowledgement Selection Test Cases">
-
-
         <parameter name="browserName" value="chrome"/>
-        <parameter name="localDriverPath" value="C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"/>
+        <parameter name="localDriverPath" value="C:\Program Files\chromedriver.exe"/>
+        <!--parameter name="profile" value="user-data-dir=C:\Users\Vinav.Mevada\AppData\Local\Google\Chrome\User Data\Profile 5"></parameter-->
         <!--<parameter name="localDriverPath" value="E:\geckodriver.exe"/>-->
 
-        <classes>
+        <!--Smart Green House URL--> 
+      
 
-            <class name="TestCases.AcknowedgementSelection"/>
+
+        <classes>
+           
+            <class name="RegressionSuite.DecisionFRegressionTestcases"/>             
+            
 
         </classes>
     </test>

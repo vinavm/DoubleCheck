@@ -19,7 +19,7 @@ public class ExtentManager {
         if (extent == null) {
             extent = new ExtentReports("Reports/TestReports.html", true);
             extent.addSystemInfo("Nop-Commerce", "QA Environment");
-            extent.addSystemInfo("Author", "Pravin");
+            extent.addSystemInfo("Author", "Vinav Mevada");
             try{
                 extent.loadConfig(new File(configFilePath));
             }catch (Exception e){

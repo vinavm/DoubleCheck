@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="7" total="9" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Acknowledgement Selection Test Suite" duration-ms="95989" started-at="2020-11-20T12:37:27Z" finished-at="2020-11-20T12:39:03Z">
+  <suite name="Acknowledgement Selection Test Suite" duration-ms="142658" started-at="2021-01-20T15:52:36Z" finished-at="2021-01-20T15:54:59Z">
     <groups>
     </groups>
-    <test name="Acknowledgement Selection Test Cases" duration-ms="95989" started-at="2020-11-20T12:37:27Z" finished-at="2020-11-20T12:39:03Z">
-      <class name="TestCases.AcknowedgementSelection">
-        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="beforeClass" is-config="true" duration-ms="15815" started-at="2020-11-20T12:37:27Z" finished-at="2020-11-20T12:37:43Z">
+    <test name="Acknowledgement Selection Test Cases" duration-ms="142658" started-at="2021-01-20T15:52:36Z" finished-at="2021-01-20T15:54:59Z">
+      <class name="RegressionSuite.DecisionFRegressionTestcases">
+        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:RegressionSuite.DecisionFRegressionTestcases@2f686d1f]" name="beforeClass" is-config="true" duration-ms="10637" started-at="2021-01-20T15:52:36Z" finished-at="2021-01-20T15:52:47Z">
           <params>
             <param index="0">
               <value>
@@ -16,14 +16,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe]]>
+                <![CDATA[C:\Program Files\chromedriver.exe]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.reflect.Method)[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="beforeMethod" is-config="true" duration-ms="661" started-at="2020-11-20T12:37:43Z" finished-at="2020-11-20T12:37:43Z">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.reflect.Method)[pri:0, instance:RegressionSuite.DecisionFRegressionTestcases@2f686d1f]" name="beforeMethod" is-config="true" duration-ms="395" started-at="2021-01-20T15:52:47Z" finished-at="2021-01-20T15:52:47Z">
           <params>
             <param index="0">
               <value>
@@ -32,34 +32,34 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void TestCases.AcknowedgementSelection.VerifyAcknowedgementSelection() throws java.lang.Exception]]>
+                <![CDATA[public void RegressionSuite.DecisionFRegressionTestcases.LogoutNo() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="VerifyAcknowedgementSelection()[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="VerifyAcknowedgementSelection" duration-ms="46825" started-at="2020-11-20T12:37:43Z" finished-at="2020-11-20T12:38:30Z">
+        <test-method status="PASS" signature="LogoutNo()[pri:0, instance:RegressionSuite.DecisionFRegressionTestcases@2f686d1f]" name="LogoutNo" duration-ms="64775" started-at="2021-01-20T15:52:47Z" finished-at="2021-01-20T15:53:52Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAcknowedgementSelection -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="afterMethod" is-config="true" duration-ms="3234" started-at="2020-11-20T12:38:30Z" finished-at="2020-11-20T12:38:33Z">
+        </test-method> <!-- LogoutNo -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:RegressionSuite.DecisionFRegressionTestcases@2f686d1f]" name="afterMethod" is-config="true" duration-ms="2779" started-at="2021-01-20T15:53:52Z" finished-at="2021-01-20T15:53:55Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyAcknowedgementSelection status=SUCCESS method=AcknowedgementSelection.VerifyAcknowedgementSelection()[pri:0, instance:TestCases.AcknowedgementSelection@402a079c] output={null}]]]>
+                <![CDATA[[TestResult name=LogoutNo status=SUCCESS method=DecisionFRegressionTestcases.LogoutNo()[pri:0, instance:RegressionSuite.DecisionFRegressionTestcases@2f686d1f] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void TestCases.AcknowedgementSelection.VerifyAcknowedgementSelection() throws java.lang.Exception]]>
+                <![CDATA[public void RegressionSuite.DecisionFRegressionTestcases.LogoutNo() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.reflect.Method)[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2020-11-20T12:38:33Z" finished-at="2020-11-20T12:38:33Z">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.reflect.Method)[pri:0, instance:RegressionSuite.DecisionFRegressionTestcases@2f686d1f]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2021-01-20T15:53:55Z" finished-at="2021-01-20T15:53:55Z">
           <params>
             <param index="0">
               <value>
@@ -68,38 +68,38 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void TestCases.AcknowedgementSelection.VerifyCashAmountandOverdueAmount() throws java.lang.Exception]]>
+                <![CDATA[public void RegressionSuite.DecisionFRegressionTestcases.LogoutYes() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="VerifyCashAmountandOverdueAmount()[pri:1, instance:TestCases.AcknowedgementSelection@402a079c]" name="VerifyCashAmountandOverdueAmount" duration-ms="25915" started-at="2020-11-20T12:38:33Z" finished-at="2020-11-20T12:38:59Z">
+        <test-method status="PASS" signature="LogoutYes()[pri:0, instance:RegressionSuite.DecisionFRegressionTestcases@2f686d1f]" name="LogoutYes" duration-ms="60669" started-at="2021-01-20T15:53:55Z" finished-at="2021-01-20T15:54:55Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyCashAmountandOverdueAmount -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="afterMethod" is-config="true" duration-ms="2172" started-at="2020-11-20T12:38:59Z" finished-at="2020-11-20T12:39:02Z">
+        </test-method> <!-- LogoutYes -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:RegressionSuite.DecisionFRegressionTestcases@2f686d1f]" name="afterMethod" is-config="true" duration-ms="2166" started-at="2021-01-20T15:54:55Z" finished-at="2021-01-20T15:54:58Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyCashAmountandOverdueAmount status=SUCCESS method=AcknowedgementSelection.VerifyCashAmountandOverdueAmount()[pri:1, instance:TestCases.AcknowedgementSelection@402a079c] output={null}]]]>
+                <![CDATA[[TestResult name=LogoutYes status=SUCCESS method=DecisionFRegressionTestcases.LogoutYes()[pri:0, instance:RegressionSuite.DecisionFRegressionTestcases@2f686d1f] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void TestCases.AcknowedgementSelection.VerifyCashAmountandOverdueAmount() throws java.lang.Exception]]>
+                <![CDATA[public void RegressionSuite.DecisionFRegressionTestcases.LogoutYes() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="terminateReport()[pri:0, instance:TestCases.AcknowedgementSelection@402a079c]" name="terminateReport" is-config="true" duration-ms="1285" started-at="2020-11-20T12:39:02Z" finished-at="2020-11-20T12:39:03Z">
+        <test-method status="PASS" signature="terminateReport()[pri:0, instance:RegressionSuite.DecisionFRegressionTestcases@2f686d1f]" name="terminateReport" is-config="true" duration-ms="1178" started-at="2021-01-20T15:54:58Z" finished-at="2021-01-20T15:54:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- terminateReport -->
-      </class> <!-- TestCases.AcknowedgementSelection -->
+      </class> <!-- RegressionSuite.DecisionFRegressionTestcases -->
     </test> <!-- Acknowledgement Selection Test Cases -->
   </suite> <!-- Acknowledgement Selection Test Suite -->
 </testng-results>

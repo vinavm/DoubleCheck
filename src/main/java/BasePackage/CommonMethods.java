@@ -1,10 +1,16 @@
 package BasePackage;
 
+import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.lt;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -15,6 +21,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Projections;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
+import org.testng.Assert;
 
 public class CommonMethods {
 
@@ -22,7 +39,8 @@ public class CommonMethods {
     public By signOut_Btn = By.xpath("//a[contains(text(),'Sign Out')]");
     private WebDriver driver;
     private JavascriptExecutor jse;
-
+    public String value;
+    
     public CommonMethods() {
 
     }
@@ -73,6 +91,147 @@ public class CommonMethods {
     }
 
 
+    public void NotificationCommuHistoryRecordRollback(){
+    	
+    	
+    	
+    	MongoClientURI uri = new MongoClientURI(
+			    "mongodb://qa_tester:sXMr4sV76xAx45NPJexK@dcc-dev-shard-00-00-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-01-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-02-pri.opnhj.gcp.mongodb.net:27017/nsf-data-dev?ssl=true&replicaSet=dcc-dev-shard-0&authSource=admin&retryWrites=true&w=majority");
+			MongoClient mongoClient = new MongoClient(uri);
+			MongoDatabase database = mongoClient.getDatabase("notification-data-stg");
+		
+		
+			MongoCollection<Document> collection = database.getCollection("notificationAccount");
+			collection.deleteOne(eq("accountId", "5ffdb2405c2db4371926aadd"));
+			mongoClient.close();
+			    	
+    }
+    
+    public void CashPaymentRollbackTrasancation(){
+    	
+    	
+    	MongoClientURI uri = new MongoClientURI(
+			    "mongodb://qa_tester:sXMr4sV76xAx45NPJexK@dcc-dev-shard-00-00-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-01-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-02-pri.opnhj.gcp.mongodb.net:27017/nsf-data-dev?ssl=true&replicaSet=dcc-dev-shard-0&authSource=admin&retryWrites=true&w=majority");
+			MongoClient mongoClient = new MongoClient(uri);
+			MongoDatabase database = mongoClient.getDatabase("payment-data-stg");
+		
+		
+			MongoCollection<Document> collection = database.getCollection("payment");
+			collection.deleteOne(eq("accountId", "5ffdb2405c2db4371926aadd"));
+			mongoClient.close();
+			
+    	
+    }
+    	
+ 
+    
+    
+    
+    
+    public void CreditCardPaymentRollback(){
+    	
+    	MongoClientURI uri = new MongoClientURI(
+			    "mongodb://qa_tester:sXMr4sV76xAx45NPJexK@dcc-dev-shard-00-00-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-01-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-02-pri.opnhj.gcp.mongodb.net:27017/nsf-data-dev?ssl=true&replicaSet=dcc-dev-shard-0&authSource=admin&retryWrites=true&w=majority");
+			MongoClient mongoClient = new MongoClient(uri);
+			MongoDatabase database = mongoClient.getDatabase("payment-data-stg");
+		
+		
+			MongoCollection<Document> collection = database.getCollection("payment");
+			
+	      
+			 FindIterable findIterable = collection.find(and(eq("accountID", "5ffdb2405c2db4371926aadd"), lt("state", "COMPLETE")));
+		     
+			
+		   
+		      BasicDBObject newDocument = new BasicDBObject();
+		      newDocument.append("$set", new BasicDBObject().append("state", "ERROR"));
+		              
+		      BasicDBObject searchQuery = new BasicDBObject().append("accountId", "5ffdb2405c2db4371926aadd");
+
+		      collection.updateMany(searchQuery, newDocument);
+		      mongoClient.close();
+		      
+    	
+    }
+    
+    
+    public void CreditCardTransactionRollback(){
+
+		MongoClientURI uri = new MongoClientURI(
+			    "mongodb://qa_tester:sXMr4sV76xAx45NPJexK@dcc-dev-shard-00-00-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-01-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-02-pri.opnhj.gcp.mongodb.net:27017/nsf-data-dev?ssl=true&replicaSet=dcc-dev-shard-0&authSource=admin&retryWrites=true&w=majority");
+			MongoClient mongoClient = new MongoClient(uri);
+			MongoDatabase database = mongoClient.getDatabase("payment-data-stg");
+		
+			MongoCollection<Document> collection = database.getCollection("payment");
+			
+		       String  value  = collection.find(eq("accountId", "5ffdb2405c2db4371926aadd")).projection(Projections.include("transactionId")).first().getString("transactionId");
+			      
+			     System.out.println(value);
+			
+			     MongoCollection<Document> collection1 = database.getCollection("creditCardTransaction");
+			     
+				 FindIterable findIterable = collection.find(and(eq("transactionId", value), lt("paymentMethod", "card")));
+			      
+			     System.out.println(value);
+			   
+			      BasicDBObject newDocument = new BasicDBObject();
+			      newDocument.append("$set", new BasicDBObject().append("decision", "ERROR"));
+			              
+			      BasicDBObject searchQuery = new BasicDBObject().append("transactionId", value);
+
+			      collection1.updateMany(searchQuery, newDocument);
+			      mongoClient.close();
+    	
+    }
+    
+    
+    public void CreditCardNSFTransactionRollback(){
+    	
+    	System.setProperty("java.net.preferIPv4Stack" , "true");
+		MongoClientURI uri = new MongoClientURI(
+			    "mongodb://qa_tester:sXMr4sV76xAx45NPJexK@dcc-dev-shard-00-00-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-01-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-02-pri.opnhj.gcp.mongodb.net:27017/nsf-data-dev?ssl=true&replicaSet=dcc-dev-shard-0&authSource=admin&retryWrites=true&w=majority");
+			MongoClient mongoClient = new MongoClient(uri);
+			MongoDatabase database = mongoClient.getDatabase("nsf-data-stg");
+		
+			MongoCollection<Document> collection = database.getCollection("nsf");
+			
+			
+			 FindIterable findIterable = collection.find(and(eq("accountId", "5ffdb2405c2db4371926aadd"), lt("state", "ACTIVE")));
+			
+			
+	       // collection.find(eq("accountId", "5f42dd5ae27bc409d1349d1e"));
+	        
+	    
+	        
+	        
+		     System.out.println(value);
+		   
+		      BasicDBObject newDocument = new BasicDBObject();
+		      newDocument.append("$set", new BasicDBObject().append("paymentState", "NONE"));
+		              
+		      BasicDBObject searchQuery = new BasicDBObject().append("accountId", "5ffdb2405c2db4371926aadd");
+
+		      collection.updateMany(searchQuery, newDocument);
+		      
+		      mongoClient.close();
+		      
+    }
+    
+    
+    public void FraudTransactionRollback(){
+    	
+    	MongoClientURI uri = new MongoClientURI(
+			    "mongodb://qa_tester:sXMr4sV76xAx45NPJexK@dcc-dev-shard-00-00-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-01-pri.opnhj.gcp.mongodb.net:27017,dcc-dev-shard-00-02-pri.opnhj.gcp.mongodb.net:27017/nsf-data-dev?ssl=true&replicaSet=dcc-dev-shard-0&authSource=admin&retryWrites=true&w=majority");
+			MongoClient mongoClient = new MongoClient(uri);
+			MongoDatabase database = mongoClient.getDatabase("payment-data-stg");
+		
+		
+			MongoCollection<Document> collection = database.getCollection("payment");
+			collection.deleteOne(eq("accountId", "5ffdb2405c2db4371926aadd"));
+			mongoClient.close();
+			
+    	
+    }
 
     public void writePropertiesFile(String propKey, String Value, String propFilePath) throws IOException {
         try {
@@ -82,6 +241,9 @@ public class CommonMethods {
             }
             FileInputStream in = new FileInputStream(propFilePath);
             Properties props = new Properties();
+           
+           
+            
             props.load(in);
             in.close();
             FileOutputStream out = new FileOutputStream(propFilePath);
@@ -140,7 +302,10 @@ public class CommonMethods {
         } catch (Exception e) {
             return false;
         }
-    }
+   
+   }
+    
+    
     
     public boolean verifyElementIsEnable(By by){
 
@@ -155,6 +320,23 @@ public class CommonMethods {
         }
     }
 
+
+    public boolean mouseHover(By by){
+
+        try {
+            Thread.sleep(5000);
+            Actions action = new Actions(driver);
+            WebElement generic_WebL = driver.findElement(by);
+            action.moveToElement(generic_WebL).build().perform();
+            
+            return true;
+            
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    
     public boolean clearTextBox(By by) {
         try {
             Thread.sleep(2000);
@@ -217,6 +399,11 @@ public class CommonMethods {
         }
     }
 
+ 
+    
+    
+    
+    
     public boolean switchToChildWindow(){
         try {
             Thread.sleep(5000);
@@ -367,7 +554,34 @@ public class CommonMethods {
         }
     }
 
+public void SwitchToPrintWindow(){
+	
+	String winHandleBefore = driver.getWindowHandle();
 
+    // Switch to new window opened
+
+    for (String winHandle : driver.getWindowHandles()) {
+
+        driver.switchTo().window(winHandle);
+        }
+    try
+{
+ driver.close();
+ }
+
+    catch(Exception e)
+
+    {
+e.printStackTrace();
+System.out.println("not close");
+
+                }
+
+driver.switchTo().window(winHandleBefore);// Again I want to start code this old window
+    
+	
+	
+}
 
 
     public boolean switchTodefaultContent(){
@@ -415,9 +629,19 @@ public class CommonMethods {
         }
     }
 
-    public String getText(By by){
-        return driver.findElement(by).getText();
-    }
+    public  boolean  getText(By by){
+         
+    	 try{
+             
+             driver.findElement(by).getText();
+             return true;
+         }catch (Exception e){
+             return false;
+         }
+     }
+        
+        
+    
 
     public void scrollPageByJs(){
         jse = (JavascriptExecutor)driver;
@@ -432,6 +656,18 @@ public class CommonMethods {
         driver.switchTo().frame(driver.findElement(by));
     }
 
+public void clickEmail(String emailesubject) throws InterruptedException{
+	
+	Thread.sleep(20000);
+    List<WebElement> UnreadMail = driver.findElements(By.xpath("//*[@class='zF']"));
+    System.out.println(UnreadMail.size());
+                for(int i=0;i<UnreadMail.size();i++){
+                    System.out.println(UnreadMail.get(i).getText());
+                    if(UnreadMail.get(i).getText().equals(emailesubject))  // if u want to click on the specific mail then here u can pass it
+                    	UnreadMail.get(i).click();
+                    
+}
+}
 
 
     public void closeWindow() throws InterruptedException {

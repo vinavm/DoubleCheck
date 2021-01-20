@@ -40,7 +40,7 @@ public class BaseTest {
 
    @Parameters({"browserName", "localDriverPath"})
    @BeforeClass(alwaysRun = true)
-   public void beforeClass(@Optional("chrome") String browserName, @Optional("C:\\Program Files (x86)\\chromedriver.exe") String localDriverPath) {
+   public void beforeClass(@Optional("chrome") String browserName, @Optional("C:\\Program Files\\chromedriver.exe") String localDriverPath) {
        getLocalDriver(browserName, localDriverPath);
 
        this.driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -63,9 +63,13 @@ public class BaseTest {
        if (browserName.equalsIgnoreCase("chrome")) {
            System.setProperty("webdriver.chrome.driver", driverPath);
            
-           ChromeOptions option = new ChromeOptions();
-           option.addArguments("user-data-dir=C:\\Users\\Vinav.Mevada\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 10");
-           this. driver = new ChromeDriver(option);
+           ChromeOptions options = new ChromeOptions();
+           options.addArguments("user-data-dir=Profile 3");
+           options.addArguments("--start-maximized");
+           driver = new ChromeDriver(options);
+           
+           
+          
            
        } else if (browserName.equalsIgnoreCase("firefox")) {
            System.setProperty("webdriver.gecko.driver", driverPath);
